@@ -1,3 +1,29 @@
+My personal project will be a Room Designer Web Application built with Next.js.
+The purpose of the app is to allow users to design a room by customizing elements such as the floor, walls, and ceiling.
+
+Users will be able to:
+
+* Choose different floor styles (wood, tile, carpet)
+* Change wall colors or patterns
+* Select ceiling styles
+* Preview their design visually in real time
+
+The application will use React state (useState) to dynamically update the room as users make changes.
+Tailwind CSS will be used for styling the interface.
+
+The project will include multiple pages such as:
+
+* Home page
+* Design page (main interactive editor)
+* Saved designs page (for logged-in users)
+
+An external API may be used to load textures, colors, or design presets, with API keys stored securely in environment variables.
+
+Authentication will allow users to save and manage their designs.
+
+The project will be deployed using Vercel and managed with GitHub.
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
