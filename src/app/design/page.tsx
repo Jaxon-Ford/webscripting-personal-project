@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import RoomPreview from "./RoomPreview";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function DesignPage() {
+  const { data: session } = useSession();
   const [wall, setWall] = useState("wallWhite");
   const [floor, setFloor] = useState("floorWood");
   const [ceiling, setCeiling] = useState("ceilingPlain");
@@ -25,8 +27,25 @@ export default function DesignPage() {
     setCeiling("ceilingPlain");
   };
 
+  if (!session) {
+    return (
+      <div className="p-10">
+        <h1 className="text-xl mb-4">You must be logged in</h1>
+        <button onClick={() => signIn()} className="border px-3 py-1">
+          Sign in
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="p-10">
+      <h1 className="text-xl mb-4">Welcome {session.user?.name}</h1>
+
+      <button onClick={() => signOut()} className="border px-3 py-1 mb-6">
+        Sign out
+      </button>
+
       <h1 className="text-3xl font-bold mb-6">Room Designer</h1>
 
       {/* Controls */}
